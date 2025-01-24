@@ -1,5 +1,5 @@
 'use client';
-import { useRouter } from 'next/navigation';  
+import { redirect, useRouter } from 'next/navigation';  
 import { useKindeBrowserClient } from "@kinde-oss/kinde-auth-nextjs";
 
 export default function Profile() {
@@ -8,7 +8,7 @@ export default function Profile() {
 
   if (!isAuthenticated) {
 
-    window.location.href = "/api/auth/login";
+    redirect("/api/auth/login");
 
 
   }
