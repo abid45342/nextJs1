@@ -4,9 +4,9 @@ export default async function BlogDetails({ params }) {
 
   return (
     <div>
-      <a href="/" className="text-blue-500 hover:underline mb-4 block">
+      {/* <a href="/" className="text-blue-500 hover:underline mb-4 block">
         &larr; Back to Home
-      </a>
+      </a> */}
       <h1 className="text-2xl font-bold">{post.title}</h1>
       <p className="mt-4">{post.body}</p>
     </div>

@@ -1,12 +1,16 @@
-'use client';
-import { redirect, useRouter } from 'next/navigation';  
-import { useKindeBrowserClient } from "@kinde-oss/kinde-auth-nextjs";
 
-export default function Profile() {
-  const router = useRouter();  
-  const { isAuthenticated } = useKindeBrowserClient();
 
-  if (!isAuthenticated) {
+import { getKindeServerSession } from '@kinde-oss/kinde-auth-nextjs/server';
+import { redirect } from 'next/navigation';  
+// import { useKindeBrowserClient } from "@kinde-oss/kinde-auth-nextjs";
+// import { getKindeServerSession } from '@kinde-oss/kinde-auth-nextjs/dist/types/server';
+
+export default async function Profile() {
+ 
+  const { isAuthenticated } =  getKindeServerSession();
+  const isUser =await isAuthenticated();
+
+  if (!isUser) {
 
     redirect("/api/auth/login");
 
